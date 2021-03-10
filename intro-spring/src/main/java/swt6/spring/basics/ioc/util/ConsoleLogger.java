@@ -1,5 +1,9 @@
 package swt6.spring.basics.ioc.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
+@Log(Log.Type.STANDARD)
 public class ConsoleLogger implements Logger {
 
   private String prefix = "Log";

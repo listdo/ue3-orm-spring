@@ -1,10 +1,15 @@
 package swt6.spring.basics.ioc.util;
 
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PreDestroy;
 import javax.inject.Named;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
+@Component
+@Log(Log.Type.FILE)
 public class FileLogger implements Logger {
 
   private PrintWriter writer;
@@ -35,6 +40,7 @@ public class FileLogger implements Logger {
     writer.flush();
   }
 
+  @PreDestroy
   public void close() {
     writer.close();
   }
